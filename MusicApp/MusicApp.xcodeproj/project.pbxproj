@@ -13,6 +13,10 @@
 		B84DB8922A5FF40A00030556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB8902A5FF40A00030556 /* Main.storyboard */; };
 		B84DB8942A5FF40B00030556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84DB8932A5FF40B00030556 /* Assets.xcassets */; };
 		B84DB8972A5FF40B00030556 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DB8952A5FF40B00030556 /* LaunchScreen.storyboard */; };
+		B8CA2AE72A66355700785B7D /* WaitingForYou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8CA2AE62A66355700785B7D /* WaitingForYou.mp3 */; };
+		B8CA2AEA2A66356900785B7D /* DeToiOmEmBangGiaiDieuNay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8CA2AE82A66356900785B7D /* DeToiOmEmBangGiaiDieuNay.mp3 */; };
+		B8CA2AEB2A66356900785B7D /* ChuyenDoiTa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8CA2AE92A66356900785B7D /* ChuyenDoiTa.mp3 */; };
+		B8CA2AEE2A66361500785B7D /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA2AED2A66361500785B7D /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		B84DB8932A5FF40B00030556 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B84DB8962A5FF40B00030556 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B84DB8982A5FF40B00030556 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8CA2AE62A66355700785B7D /* WaitingForYou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WaitingForYou.mp3; sourceTree = "<group>"; };
+		B8CA2AE82A66356900785B7D /* DeToiOmEmBangGiaiDieuNay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DeToiOmEmBangGiaiDieuNay.mp3; sourceTree = "<group>"; };
+		B8CA2AE92A66356900785B7D /* ChuyenDoiTa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ChuyenDoiTa.mp3; sourceTree = "<group>"; };
+		B8CA2AED2A66361500785B7D /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,35 @@
 		B84DB8892A5FF40A00030556 /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				B84DB88E2A5FF40A00030556 /* ViewController.swift */,
+				B8CA2AEC2A6635F900785B7D /* Model */,
+				B8CA2AE52A6634ED00785B7D /* Audio */,
 				B84DB88A2A5FF40A00030556 /* AppDelegate.swift */,
 				B84DB88C2A5FF40A00030556 /* SceneDelegate.swift */,
-				B84DB88E2A5FF40A00030556 /* ViewController.swift */,
-				B84DB8902A5FF40A00030556 /* Main.storyboard */,
 				B84DB8932A5FF40B00030556 /* Assets.xcassets */,
-				B84DB8952A5FF40B00030556 /* LaunchScreen.storyboard */,
 				B84DB8982A5FF40B00030556 /* Info.plist */,
+				B84DB8902A5FF40A00030556 /* Main.storyboard */,
+				B84DB8952A5FF40B00030556 /* LaunchScreen.storyboard */,
 			);
 			path = MusicApp;
+			sourceTree = "<group>";
+		};
+		B8CA2AE52A6634ED00785B7D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				B8CA2AE62A66355700785B7D /* WaitingForYou.mp3 */,
+				B8CA2AE92A66356900785B7D /* ChuyenDoiTa.mp3 */,
+				B8CA2AE82A66356900785B7D /* DeToiOmEmBangGiaiDieuNay.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		B8CA2AEC2A6635F900785B7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8CA2AED2A66361500785B7D /* Song.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +155,10 @@
 			files = (
 				B84DB8972A5FF40B00030556 /* LaunchScreen.storyboard in Resources */,
 				B84DB8942A5FF40B00030556 /* Assets.xcassets in Resources */,
+				B8CA2AE72A66355700785B7D /* WaitingForYou.mp3 in Resources */,
 				B84DB8922A5FF40A00030556 /* Main.storyboard in Resources */,
+				B8CA2AEB2A66356900785B7D /* ChuyenDoiTa.mp3 in Resources */,
+				B8CA2AEA2A66356900785B7D /* DeToiOmEmBangGiaiDieuNay.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CA2AEE2A66361500785B7D /* Song.swift in Sources */,
 				B84DB88F2A5FF40A00030556 /* ViewController.swift in Sources */,
 				B84DB88B2A5FF40A00030556 /* AppDelegate.swift in Sources */,
 				B84DB88D2A5FF40A00030556 /* SceneDelegate.swift in Sources */,

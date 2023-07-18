@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,20 +35,80 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="dnv-hc-V1b">
+                                <rect key="frame" x="91.666666666666686" y="703.66666666666663" width="210" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk1-hr-XDm">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="backward.fill" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B6W-lA-BQ6"/>
+                                            <action selector="pauseButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mYS-Hr-kR9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXG-kj-rrG">
+                                        <rect key="frame" x="83.999999999999986" y="0.0" width="42" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pauseButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NO2-B2-d9p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltq-dv-0qD">
+                                        <rect key="frame" x="154" y="0.0" width="56" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="forward.fill" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nextButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BD4-WB-Co1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sUp-Oz-jCD">
+                                <rect key="frame" x="58" y="613.66666666666663" width="277" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VEK-qV-FjQ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WRm-I1-Eeh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="93d-Zm-iii"/>
+                            <constraint firstItem="dnv-hc-V1b" firstAttribute="top" secondItem="sUp-Oz-jCD" secondAttribute="bottom" constant="60" id="BnQ-DL-7Oa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sUp-Oz-jCD" secondAttribute="trailing" constant="60" id="DTx-oN-6jm"/>
                             <constraint firstItem="WRm-I1-Eeh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RGy-xF-e8Y"/>
                             <constraint firstItem="0Rw-kG-EG6" firstAttribute="top" secondItem="SUB-pk-yjT" secondAttribute="bottom" constant="8" id="XGy-wV-9pG"/>
                             <constraint firstAttribute="trailing" secondItem="0Rw-kG-EG6" secondAttribute="trailing" constant="40" id="bKl-ht-xnM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dnv-hc-V1b" secondAttribute="bottom" constant="80" id="bwT-Fm-Pha"/>
                             <constraint firstItem="SUB-pk-yjT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ebV-ls-cdh"/>
+                            <constraint firstItem="sUp-Oz-jCD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="gEJ-49-aWr"/>
                             <constraint firstItem="SUB-pk-yjT" firstAttribute="top" secondItem="WRm-I1-Eeh" secondAttribute="bottom" constant="40" id="gbw-Rq-Lvp"/>
+                            <constraint firstItem="dnv-hc-V1b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZJ-VM-Mt3"/>
                             <constraint firstAttribute="trailing" secondItem="SUB-pk-yjT" secondAttribute="trailing" constant="40" id="jTb-EV-V7z"/>
                             <constraint firstItem="0Rw-kG-EG6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="pN8-lT-q2M"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artworkImageView" destination="WRm-I1-Eeh" id="BHF-tA-heK"/>
+                        <outlet property="backButton" destination="dk1-hr-XDm" id="S4f-3o-udl"/>
+                        <outlet property="nextButton" destination="ltq-dv-0qD" id="wYZ-um-AVt"/>
+                        <outlet property="pauseButton" destination="fXG-kj-rrG" id="eYG-2n-Uvb"/>
+                        <outlet property="performerLabel" destination="0Rw-kG-EG6" id="OoP-2T-d9W"/>
+                        <outlet property="playTimeSlider" destination="sUp-Oz-jCD" id="7mb-72-BUD"/>
+                        <outlet property="titleLabel" destination="SUB-pk-yjT" id="2Qm-3f-Ete"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,5 +117,8 @@
     </scenes>
     <resources>
         <image name="WaitingForYou" width="480" height="480"/>
+        <image name="backward.fill" catalog="system" width="128" height="77"/>
+        <image name="forward.fill" catalog="system" width="128" height="77"/>
+        <image name="pause.fill" catalog="system" width="117" height="128"/>
     </resources>
 </document>
