@@ -9,7 +9,6 @@ import UIKit
 import AVFoundation
 
 final class ViewController: UIViewController {
-    // MARK: - IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var performerLabel: UILabel!
     @IBOutlet private weak var artworkImageView: UIImageView!
@@ -18,22 +17,23 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var backButton: UIButton!
     
-    // MARK: - Variable
-    private var songs: [Song] = []
-    private var position: Int = 0
-    
+    var songs: [Song] = []
+    var position: Int = 0
     private var player = AVAudioPlayer()
     private var timer = Timer()
     
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addSongs()
         updateSong()
     }
     
-    // MARK: - IBAction
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        player.stop()
+    }
+    
     @IBAction private func pauseButtonTouchUpInside(_ sender: Any) {
         if player.isPlaying {
             player.pause()
@@ -102,15 +102,5 @@ final class ViewController: UIViewController {
             }
         }
     }
-    
-    private func addSongs(){
-        songs.append(Song(title: "Waiting For You", performer: "MONO, Onionn", artworkName: "WaitingForYou", songName: "WaitingForYou"))
-        songs.append(Song(title: "để tôi ôm em bằng giai điệu này", performer: "Kai Đinh, MIN, GREY D", artworkName: "DeToiOmEmBangGiaiDieuNay", songName: "DeToiOmEmBangGiaiDieuNay"))
-        songs.append(Song(title: "Chuyện Đôi Ta", performer: "Emcee L, Muộii", artworkName: "ChuyenDoiTa", songName: "ChuyenDoiTa"))
-        songs.append(Song(title: "Waiting For You", performer: "MONO, Onionn", artworkName: "WaitingForYou", songName: "WaitingForYou"))
-        songs.append(Song(title: "để tôi ôm em bằng giai điệu này", performer: "Kai Đinh, MIN, GREY D", artworkName: "DeToiOmEmBangGiaiDieuNay", songName: "DeToiOmEmBangGiaiDieuNay"))
-        songs.append(Song(title: "Chuyện Đôi Ta", performer: "Emcee L, Muộii", artworkName: "ChuyenDoiTa", songName: "ChuyenDoiTa"))
-    }
-    
 }
 
