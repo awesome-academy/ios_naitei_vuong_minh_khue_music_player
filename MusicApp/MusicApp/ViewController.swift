@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 final class ViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
@@ -26,6 +27,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         updateSong()
+        setupRemoteCommandCenter()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -60,6 +62,7 @@ final class ViewController: UIViewController {
         let songDuration = player.duration
         
         player.currentTime = songDuration*Double(playTimeSlider.value)
+        updateNowPlaying()
     }
     
     private func updateSong(){
@@ -90,6 +93,60 @@ final class ViewController: UIViewController {
         }
         
         playSong(songName: currentSong.songName)
+        updateNowPlaying()
+    }
+    
+    private func updateNowPlaying() {
+        let currentSong = songs[position]
+        
+        guard let artWorkImage = UIImage(named: currentSong.artworkName) else { return }
+        let MPArtWork = MPMediaItemArtwork(boundsSize: artWorkImage.size) { [unowned artWorkImage] size in
+            return artWorkImage
+        }
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [
+            MPMediaItemPropertyArtist: currentSong.performer,
+            MPMediaItemPropertyTitle: currentSong.songName,
+            MPMediaItemPropertyArtwork: MPArtWork,
+            MPNowPlayingInfoPropertyElapsedPlaybackTime: player.currentTime,
+            MPMediaItemPropertyPlaybackDuration: player.duration,
+            MPNowPlayingInfoPropertyPlaybackRate: player.rate
+        ]
+        MPNowPlayingInfoCenter.default().playbackState = .playing
+    }
+
+    private func setupRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            player.play()
+            return .success
+        }
+        
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            player.pause()
+            return .success
+        }
+        
+        commandCenter.nextTrackCommand.isEnabled = true
+        commandCenter.nextTrackCommand.addTarget {  [unowned self] event in
+            if position < songs.count - 1 {
+                position = position + 1
+                updateSong()
+            }
+            return .success
+        }
+        
+        commandCenter.previousTrackCommand.isEnabled = true
+        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
+            if position > 0 {
+                position = position - 1
+                updateSong()
+            }
+            return .success
+        }
     }
     
     private func playSong(songName: String) {
